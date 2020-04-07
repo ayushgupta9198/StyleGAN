@@ -34,7 +34,7 @@ if 1:
     tf_config     = {'rnd.np_random_seed': 1000}                                           # Options for tflib.init_tf().
 
     # Dataset.
-    desc += '-custom';     dataset = EasyDict(tfrecord_dir='kaggle/working/stylegan/dataset/anime_dataset');                 train.mirror_augment = True
+    desc += '-custom';     dataset = EasyDict(tfrecord_dir='kaggle/working/gan/dataset/anime_dataset');                 train.mirror_augment = True
     #desc += '-ffhq512';  dataset = EasyDict(tfrecord_dir='ffhq', resolution=512); train.mirror_augment = True
     #desc += '-ffhq256';  dataset = EasyDict(tfrecord_dir='ffhq', resolution=256); train.mirror_augment = True
     #desc += '-celebahq'; dataset = EasyDict(tfrecord_dir='celebahq');             train.mirror_augment = True
