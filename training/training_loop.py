@@ -133,9 +133,9 @@ def training_loop(
     network_snapshot_ticks  = 10,       # How often to export network snapshots?
     save_tf_graph           = False,    # Include full TensorFlow computation graph in the tfevents file?
     save_weight_histograms  = False,    # Include weight histograms in the tfevents file?
-    resume_run_id           = './results/00000-sgan-custom-1gpu/network-snapshot-004084.pkl',     # Run ID or network pkl to resume training from, None = start from scratch.
+    resume_run_id           = None,     # Run ID or network pkl to resume training from, None = start from scratch.
     resume_snapshot         = None,     # Snapshot index to resume training from, None = autodetect.
-    resume_kimg             = 4084.0,      # Assumed training progress at the beginning. Affects reporting and training schedule.
+    resume_kimg             = 0.0,      # Assumed training progress at the beginning. Affects reporting and training schedule.
     resume_time             = 0.0):     # Assumed wallclock time at the beginning. Affects reporting.
 
     # Initialize dnnlib and TensorFlow.
@@ -210,7 +210,7 @@ def training_loop(
     ctx.update('', cur_epoch=resume_kimg, max_epoch=total_kimg)
     maintenance_time = ctx.get_last_update_interval()
     cur_nimg = int(resume_kimg * 1000)
-    cur_tick = 41
+    cur_tick = 0
     tick_start_nimg = cur_nimg
     prev_lod = -1.0
     while cur_nimg < total_kimg * 1000:
